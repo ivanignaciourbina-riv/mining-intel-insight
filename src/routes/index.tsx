@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import heroBg from "@/assets/hero-mina.png.asset.json";
 import {
   TrendingUp,
   Droplets,
@@ -150,9 +151,14 @@ function Hero() {
   return (
     <section
       id="inicio"
-      className="relative overflow-hidden bg-surface pt-24 pb-16 sm:pt-32 sm:pb-24"
+      className="relative overflow-hidden pt-24 pb-16 sm:pt-32 sm:pb-24"
     >
-      <div className="absolute inset-y-0 right-0 hidden w-1/2 bg-gradient-to-br from-copper/10 via-transparent to-mineral/10 lg:block" />
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${heroBg.url})` }}
+        aria-hidden
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/40 lg:from-white/95 lg:via-white/70 lg:to-transparent" aria-hidden />
       <div className="relative mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
         <div className="lg:col-span-7">
           <span className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-semibold uppercase tracking-wider text-mineral shadow-sm ring-1 ring-slate-200">
