@@ -71,6 +71,11 @@
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
+  --surface: #f1f5f9;
+  --copper: #d97757;
+  --copper-foreground: #ffffff;
+  --mineral: #4f9186;
+  --mineral-foreground: #ffffff;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
