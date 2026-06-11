@@ -393,9 +393,9 @@ function Index() {
     <div className="min-h-screen bg-white font-sans text-slate-900 antialiased">
       <Navbar />
       <main className="pt-16">
-        <Hero />
         <Kpis />
         <Investigaciones />
+        <Hero />
         <About />
       </main>
       <Footer />
