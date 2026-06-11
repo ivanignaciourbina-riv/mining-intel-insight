@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import heroBg from "@/assets/hero-mina.png.asset.json";
 import {
@@ -65,6 +66,7 @@ const kpis = [
 
 const notas = [
   {
+    slug: "mineria-autonoma",
     tag: "Automatización",
     accent: "copper" as const,
     title: "El despertar de la minería autónoma",
@@ -74,6 +76,7 @@ const notas = [
       "En mayo de 2008, la división Gabriela Mistral de Codelco se convirtió en el primer yacimiento a nivel mundial diseñado para operar al 100% con una flota de camiones de extracción autónomos utilizando el sistema AHS FrontRunner de Komatsu. Este hito demostró que los sistemas robotizados guiados por algoritmos podían operar de forma masiva y segura en entornos complejos, abriendo paso a la Minería 4.0 en el país.",
   },
   {
+    slug: "seguridad-fatiga",
     tag: "Seguridad",
     accent: "mineral" as const,
     title: "Seguridad de vanguardia contra la fatiga laboral",
@@ -83,6 +86,7 @@ const notas = [
       "En faenas de gran escala como El Teniente o Los Bronces, se aplican Sistemas de Monitoreo de Fatiga y Somnolencia (DMS) directamente en las cabinas de los camiones CAEX bajo el estándar de Codelco. Estos sistemas usan cámaras infrarrojas y algoritmos de visión artificial para detectar micro-sueños o distracciones, emitiendo alertas acústicas y mecánicas para activar relevos y alcanzar el objetivo de cero fatalidades.",
   },
   {
+    slug: "agua-relaves-ia",
     tag: "Sustentabilidad",
     accent: "copper" as const,
     title: "Algoritmos al rescate del agua y la estabilidad de relaves",
@@ -299,12 +303,13 @@ function Investigaciones() {
               </h3>
               <p className="mt-2 text-sm font-medium text-slate-600">{n.bajada}</p>
               <p className="mt-4 text-sm leading-relaxed text-slate-700">{n.contenido}</p>
-              <a
-                href="#"
+              <Link
+                to="/investigacion/$slug"
+                params={{ slug: n.slug }}
                 className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-slate-900 hover:text-copper"
               >
                 Leer reportaje completo <ArrowRight className="h-4 w-4" />
-              </a>
+              </Link>
             </article>
           );
         })}
