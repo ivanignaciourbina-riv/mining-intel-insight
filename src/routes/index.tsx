@@ -109,7 +109,7 @@ function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <a href="#inicio" className="flex items-center gap-2 font-bold text-slate-900">
-          <img src={logo.url} alt="Minería 4.0 Chile" className="h-8 w-8 object-contain" />
+          <img src={logo.url} alt="Minería 4.0 Chile" className="h-10 w-10 object-contain" />
           <span className="text-base sm:text-lg">Minería 4.0 Chile</span>
         </a>
         <nav className="hidden items-center gap-8 md:flex">
@@ -375,7 +375,7 @@ function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-4 lg:px-8">
         <div className="lg:col-span-2">
           <div className="flex items-center gap-2 text-white">
-            <img src={logo.url} alt="Minería 4.0 Chile" className="h-8 w-8 object-contain" />
+            <img src={logo.url} alt="Minería 4.0 Chile" className="h-10 w-10 object-contain" />
             <span className="text-lg font-bold">Minería 4.0 Chile</span>
           </div>
           <p className="mt-4 max-w-md text-sm text-slate-400">
