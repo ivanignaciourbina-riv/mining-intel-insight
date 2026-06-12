@@ -375,7 +375,7 @@ function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-4 lg:px-8">
         <div className="lg:col-span-2">
           <div className="flex items-center gap-2 text-white">
-            <img src={logo.url} alt="Minería 4.0 Chile" className="h-8 w-8 object-contain" />
+            <img src={logo.url} alt="Minería 4.0 Chile" className="h-10 w-10 object-contain" />
             <span className="text-lg font-bold">Minería 4.0 Chile</span>
           </div>
           <p className="mt-4 max-w-md text-sm text-slate-400">
