@@ -1,5 +1,8 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, Mountain } from "lucide-react";
+import imgAutonoma from "@/assets/inv-mineria-autonoma.jpg.asset.json";
+import imgFatiga from "@/assets/inv-seguridad-fatiga.jpg.asset.json";
+import imgAgua from "@/assets/inv-agua-relaves.jpg.asset.json";
 
 type Nota = {
   tag: string;
@@ -9,6 +12,7 @@ type Nota = {
   autor: string;
   fecha: string;
   lectura: string;
+  imagen: string;
   parrafos: string[];
 };
 
@@ -22,6 +26,7 @@ const notas: Record<string, Nota> = {
     autor: "Redacción Minería 4.0",
     fecha: "12 de marzo de 2026",
     lectura: "8 min de lectura",
+    imagen: imgAutonoma.url,
     parrafos: [
       "En mayo de 2008, la división Gabriela Mistral de Codelco se convirtió en el primer yacimiento a nivel mundial diseñado para operar al 100% con una flota de camiones de extracción autónomos, utilizando el sistema AHS FrontRunner de Komatsu. El proyecto marcó un antes y un después en la forma en que la gran minería entiende la operación de sus rajos.",
       "La promesa inicial era simple: reducir la exposición humana a entornos extremos, estandarizar los ciclos de carguío y transporte y, sobre todo, aumentar la disponibilidad mecánica de los equipos. Lo que vino después superó esa expectativa. Los algoritmos de ruteo, combinados con sensores LIDAR y GPS diferencial, permitieron que decenas de camiones de más de 300 toneladas se coordinaran sin intervención directa en cabina.",
@@ -38,6 +43,7 @@ const notas: Record<string, Nota> = {
     autor: "Redacción Minería 4.0",
     fecha: "28 de abril de 2026",
     lectura: "7 min de lectura",
+    imagen: imgFatiga.url,
     parrafos: [
       "En faenas de gran escala como El Teniente o Los Bronces, los Sistemas de Monitoreo de Fatiga y Somnolencia (DMS) ya son parte del estándar operacional. Cámaras infrarrojas instaladas directamente en las cabinas de los camiones CAEX siguen, segundo a segundo, los micro-movimientos del rostro y los ojos del operador.",
       "Cuando el algoritmo detecta un parpadeo prolongado, una caída de cabeza o una distracción atípica, dispara una alerta acústica y mecánica en la cabina. Al mismo tiempo, la señal viaja al centro integrado de operaciones, donde un supervisor decide si activar un relevo inmediato.",
@@ -54,6 +60,7 @@ const notas: Record<string, Nota> = {
     autor: "Redacción Minería 4.0",
     fecha: "20 de mayo de 2026",
     lectura: "9 min de lectura",
+    imagen: imgAgua.url,
     parrafos: [
       "El estrés hídrico que vive el norte y el centro de Chile ha empujado a la gran minería a repensar por completo su relación con el agua. Los gemelos digitales de plantas concentradoras permiten hoy simular en tiempo real el balance hídrico de toda una operación y decidir, automáticamente, cuándo recircular, cuándo reponer y cuándo detener procesos.",
       "Los resultados son tangibles: varias compañías ya reportan tasas de recirculación cercanas al 85%, una cifra impensable hace apenas una década. La diferencia la hacen los modelos de IA que aprenden del histórico operacional y anticipan desviaciones antes de que ocurran.",
@@ -77,6 +84,13 @@ export const Route = createFileRoute("/investigacion/$slug")({
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:type", content: "article" },
+        ...(nota?.imagen
+          ? [
+              { property: "og:image", content: nota.imagen },
+              { name: "twitter:image", content: nota.imagen },
+              { name: "twitter:card", content: "summary_large_image" },
+            ]
+          : []),
       ],
     };
   },
@@ -154,6 +168,14 @@ function InvestigacionPage() {
             <span aria-hidden>·</span>
             <span>{nota.lectura}</span>
           </div>
+
+          <figure className="mt-10 overflow-hidden rounded-2xl ring-1 ring-slate-200">
+            <img
+              src={nota.imagen}
+              alt={nota.title}
+              className="aspect-[16/9] w-full object-cover"
+            />
+          </figure>
 
           <div className="mt-10 space-y-6 text-base leading-relaxed text-slate-700 sm:text-lg">
             {nota.parrafos.map((p, i) => (
