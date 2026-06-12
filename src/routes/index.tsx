@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import heroBg from "@/assets/hero-panoramic.jpg.asset.json";
 import logo from "@/assets/logo-copper.png.asset.json";
+import panelVideo from "@/assets/panel-innovacion.mp4.asset.json";
 import imgAutonoma from "@/assets/inv-mineria-autonoma.jpg.asset.json";
 import imgFatiga from "@/assets/inv-seguridad-fatiga.jpg.asset.json";
 import imgAgua from "@/assets/inv-agua-relaves.jpg.asset.json";
@@ -486,27 +487,28 @@ const dashboard = [
 function Dashboard() {
   return (
     <section id="indicadores" className="bg-surface py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-mineral">
-              Indicadores
-            </p>
-            <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              Panel de innovación minera
-            </h2>
-            <p className="mt-2 max-w-2xl text-slate-600">
-              Dimensiones clave que monitorea la nueva minería chilena. Los valores
-              específicos se incorporarán a medida que se publiquen datos verificados.
-            </p>
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+        <div>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider text-mineral">
+                Indicadores
+              </p>
+              <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+                Panel de innovación minera
+              </h2>
+              <p className="mt-2 max-w-2xl text-slate-600">
+                Dimensiones clave que monitorea la nueva minería chilena. Los valores
+                específicos se incorporarán a medida que se publiquen datos verificados.
+              </p>
+            </div>
+            <span className="inline-flex w-fit items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-semibold text-mineral ring-1 ring-slate-200">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-mineral" />
+              Datos de referencia
+            </span>
           </div>
-          <span className="inline-flex w-fit items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-semibold text-mineral ring-1 ring-slate-200">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-mineral" />
-            Datos de referencia
-          </span>
-        </div>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
           {dashboard.map((d) => {
             const Icon = d.icon;
             return (
@@ -537,6 +539,24 @@ function Dashboard() {
               </div>
             );
           })}
+          </div>
+        </div>
+        <div className="lg:sticky lg:top-24 lg:self-start">
+          <div className="overflow-hidden rounded-2xl bg-slate-900 shadow-lg ring-1 ring-slate-200">
+            <video
+              src={panelVideo.url}
+              className="h-full w-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls
+              preload="metadata"
+            />
+          </div>
+          <p className="mt-3 text-xs text-slate-500">
+            Video en silencio por defecto. Activa el sonido desde los controles del reproductor.
+          </p>
         </div>
       </div>
     </section>
