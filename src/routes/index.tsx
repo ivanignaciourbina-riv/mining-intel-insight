@@ -246,7 +246,7 @@ function Kpis() {
           return (
             <div
               key={k.label}
-              className="group rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200 transition-all hover:-translate-y-1 hover:shadow-md"
+              className="group rounded-xl bg-surface p-6 shadow-sm ring-1 ring-slate-200 transition-all hover:-translate-y-1 hover:shadow-md"
             >
               <div className="flex items-start justify-between">
                 <div className={`grid h-12 w-12 place-items-center rounded-lg ${accentBg}`}>
