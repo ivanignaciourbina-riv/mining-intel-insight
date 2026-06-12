@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import heroBg from "@/assets/hero-mina.png.asset.json";
+import logo from "@/assets/logo-mineria.jpeg.asset.json";
 import imgAutonoma from "@/assets/inv-mineria-autonoma.jpg.asset.json";
 import imgFatiga from "@/assets/inv-seguridad-fatiga.jpg.asset.json";
 import imgAgua from "@/assets/inv-agua-relaves.jpg.asset.json";
@@ -9,7 +10,6 @@ import {
   TrendingUp,
   Droplets,
   ShieldCheck,
-  Mountain,
   Menu,
   X,
   ArrowRight,
@@ -109,7 +109,7 @@ function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <a href="#inicio" className="flex items-center gap-2 font-bold text-slate-900">
-          <Mountain className="h-6 w-6 text-copper" />
+          <img src={logo.url} alt="Minería 4.0 Chile" className="h-8 w-8 object-contain" />
           <span className="text-base sm:text-lg">Minería 4.0 Chile</span>
         </a>
         <nav className="hidden items-center gap-8 md:flex">
@@ -375,7 +375,7 @@ function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-4 lg:px-8">
         <div className="lg:col-span-2">
           <div className="flex items-center gap-2 text-white">
-            <Mountain className="h-6 w-6 text-copper" />
+            <img src={logo.url} alt="Minería 4.0 Chile" className="h-8 w-8 object-contain" />
             <span className="text-lg font-bold">Minería 4.0 Chile</span>
           </div>
           <p className="mt-4 max-w-md text-sm text-slate-400">
