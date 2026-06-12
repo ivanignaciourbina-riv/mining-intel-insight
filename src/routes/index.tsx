@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import heroBg from "@/assets/hero-mina.png.asset.json";
+import imgAutonoma from "@/assets/inv-mineria-autonoma.jpg.asset.json";
+import imgFatiga from "@/assets/inv-seguridad-fatiga.jpg.asset.json";
+import imgAgua from "@/assets/inv-agua-relaves.jpg.asset.json";
 import {
   TrendingUp,
   Droplets,
@@ -69,6 +72,7 @@ const notas = [
     slug: "mineria-autonoma",
     tag: "Automatización",
     accent: "copper" as const,
+    imagen: imgAutonoma.url,
     title: "El despertar de la minería autónoma",
     bajada:
       "El hito histórico de la División Gabriela Mistral de Codelco que transformó la industria global.",
@@ -79,6 +83,7 @@ const notas = [
     slug: "seguridad-fatiga",
     tag: "Seguridad",
     accent: "mineral" as const,
+    imagen: imgFatiga.url,
     title: "Seguridad de vanguardia contra la fatiga laboral",
     bajada:
       "Sistemas de visión artificial reducen la exposición al riesgo en las cabinas de los camiones de extracción.",
@@ -89,6 +94,7 @@ const notas = [
     slug: "agua-relaves-ia",
     tag: "Sustentabilidad",
     accent: "copper" as const,
+    imagen: imgAgua.url,
     title: "Algoritmos al rescate del agua y la estabilidad de relaves",
     bajada:
       "La Inteligencia Artificial se vuelve obligatoria frente al escenario de estrés hídrico y cambio climático.",
@@ -291,8 +297,17 @@ function Investigaciones() {
           return (
             <article
               key={n.title}
-              className={`relative flex flex-col rounded-xl bg-white p-6 pt-7 shadow-sm ring-1 ring-slate-200 transition-all hover:-translate-y-1 hover:shadow-md before:absolute before:inset-x-0 before:top-0 before:h-1 before:rounded-t-xl ${border}`}
+              className={`relative flex flex-col overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-slate-200 transition-all hover:-translate-y-1 hover:shadow-md before:absolute before:inset-x-0 before:top-0 before:z-10 before:h-1 ${border}`}
             >
+              <div className="aspect-video w-full overflow-hidden bg-slate-100">
+                <img
+                  src={n.imagen}
+                  alt={n.title}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </div>
+              <div className="flex flex-1 flex-col p-6">
               <span
                 className={`inline-flex w-fit items-center rounded-full px-2.5 py-1 text-xs font-semibold ${tagColor}`}
               >
@@ -310,6 +325,7 @@ function Investigaciones() {
               >
                 Leer reportaje completo <ArrowRight className="h-4 w-4" />
               </Link>
+              </div>
             </article>
           );
         })}
