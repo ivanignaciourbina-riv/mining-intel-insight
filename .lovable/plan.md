@@ -1,38 +1,22 @@
-# Minería 4.0 Chile — Blog periodístico corporativo
+## Objetivo
+Agregar las 3 imágenes subidas a las tarjetas de "Últimas investigaciones" en la home y al hero de cada landing de reportaje.
 
-SPA de una sola página inspirada en la landing de Banco de Chile, con estética dashboard limpio, paleta blanca/gris claro con acentos cobre y verde mineral, tipografía Inter.
+## Mapeo de imágenes
+- `primera_foto.jpeg` (Gabriela Mistral, camiones Codelco) → **El despertar de la minería autónoma** (`mineria-autonoma`)
+- `segunda_foto.jpeg` (cabina con DMS, cero fatalidades) → **Seguridad de vanguardia contra la fatiga laboral** (`seguridad-fatiga`)
+- `tercera_foto.jpeg` (tranque, gestión hídrica) → **Algoritmos al rescate del agua y la estabilidad de relaves** (`agua-relaves-ia`)
 
-## Alcance
+## Cambios
 
-Reemplazar la home (`src/routes/index.tsx`) por una landing completa con todas las secciones especificadas, totalmente responsiva y con metadata SEO.
+1. **Subir las 3 imágenes** vía `lovable-assets create` desde `/mnt/user-uploads/` y guardar los pointers en:
+   - `src/assets/inv-mineria-autonoma.jpg.asset.json`
+   - `src/assets/inv-seguridad-fatiga.jpg.asset.json`
+   - `src/assets/inv-agua-relaves.jpg.asset.json`
 
-## Estructura de secciones
+2. **`src/routes/index.tsx`** — En el array `notas`, añadir un campo `imagen` por nota con el URL del asset. En cada tarjeta de `Investigaciones`, agregar arriba del contenido una imagen 16:9 (`aspect-video object-cover`) con bordes redondeados superiores, manteniendo el borde superior de color (copper/mineral) sobre la imagen. Conservar layout, tags, título, bajada, resumen y el link "Leer reportaje completo".
 
-1. **Navbar fijo** — fondo blanco, sombra sutil, logo "⛰️ Minería 4.0 Chile" a la izquierda, enlaces a Inicio / Investigaciones / Indicadores / Acerca de a la derecha. Menú hamburguesa en mobile.
-2. **Hero** — banner ancho con fondo gris claro + acento cobre, titular periodístico fuerte ("Inteligencia Artificial en la Minería Chilena"), bajada y CTA "Explorar investigaciones" que scrollea a la grilla.
-3. **KPIs / Destacados** — fila de 3 tarjetas tipo "accesos directos": Productividad (+12.5%), Sustentabilidad (85% agua recirculada), Seguridad (-40% accidentes), con iconos Lucide (TrendingUp, Droplets, ShieldCheck).
-4. **Últimas Investigaciones** — grid de 3 columnas (1 col mobile, 2 tablet, 3 desktop). Cada tarjeta: borde superior de 3px (cobre o verde mineral alternado), bordes redondeados, `shadow-sm`, hover con `-translate-y-1` y `shadow-md`. Contiene título, bajada y contenido corto (texto íntegro provisto por el usuario).
-5. **Footer** — fondo gris oscuro, enlaces secundarios (Inicio, Investigaciones, Contacto, Política), créditos "Diplomado de IA para Periodistas".
+3. **`src/routes/investigacion.$slug.tsx`** — Añadir `imagen` al objeto `Nota` y, en el componente, renderizar un hero visual ancho (full-bleed dentro del contenedor del artículo, `aspect-[16/7]` aprox., `rounded-2xl`, `object-cover`) entre la bajada/metadatos y los párrafos del reportaje. También usar la misma URL como `og:image` y `twitter:image` en `head()` del leaf route para mejorar el preview al compartir.
 
-## Detalles técnicos
-
-- **Tokens de diseño** en `src/styles.css` (`@theme inline`):
-  - `--background: #ffffff`
-  - `--muted: #f1f5f9` (gris claro)
-  - `--accent-copper: #d97757`
-  - `--accent-mineral: #4f9186`
-  - `--foreground: #0f172a`
-  - Mapeo a utilidades Tailwind (`bg-copper`, `text-mineral`, etc.)
-- **Tipografía Inter**: cargar vía `<link>` a Google Fonts en `src/routes/__root.tsx` (no `@import` en CSS, según reglas Tailwind v4) y registrar `--font-sans: "Inter", ...` en `@theme`.
-- **SEO** en `index.tsx`: title, description, og:title, og:description específicos al tema.
-- **Iconos** desde `lucide-react`.
-- **Componentes** inline en `index.tsx` (Navbar, Hero, KPIs, Grid, Footer) — landing simple, no requiere splitting adicional.
-- **Responsivo**: grid con `grid-cols-1 md:grid-cols-2 lg:grid-cols-3`, navbar colapsable en mobile, paddings fluidos.
-
-## Archivos a modificar
-
-- `src/routes/index.tsx` — reemplazo completo con la landing.
-- `src/styles.css` — agregar tokens cobre/mineral y `--font-sans`.
-- `src/routes/__root.tsx` — agregar `<link>` a Inter en Google Fonts.
-
-No se requiere backend ni rutas adicionales.
+## Notas técnicas
+- Las imágenes se sirven vía CDN (`/__l5e/assets-v1/...`), no se commitean binarios.
+- No se cambian rutas, slugs, navegación ni estilos del resto del sitio.
