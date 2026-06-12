@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import heroBg from "@/assets/hero-mina.png.asset.json";
-import logo from "@/assets/logo-mineria.jpeg.asset.json";
+import heroBg from "@/assets/hero-panoramic.jpg.asset.json";
+import logo from "@/assets/logo-copper.png.asset.json";
 import imgAutonoma from "@/assets/inv-mineria-autonoma.jpg.asset.json";
 import imgFatiga from "@/assets/inv-seguridad-fatiga.jpg.asset.json";
 import imgAgua from "@/assets/inv-agua-relaves.jpg.asset.json";
@@ -13,6 +13,14 @@ import {
   Menu,
   X,
   ArrowRight,
+  Truck,
+  Activity,
+  LineChart,
+  Cpu,
+  Radio,
+  Network,
+  Boxes,
+  Sparkles,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -39,6 +47,7 @@ export const Route = createFileRoute("/")({
 const navLinks = [
   { label: "Inicio", href: "#inicio" },
   { label: "Investigaciones", href: "#investigaciones" },
+  { label: "Trayectoria", href: "#trayectoria" },
   { label: "Indicadores", href: "#indicadores" },
   { label: "Acerca de", href: "#acerca" },
 ];
@@ -178,15 +187,17 @@ function Hero() {
             Inteligencia Artificial en la <span className="text-copper">minería chilena</span>
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-slate-600">
-            Investigaciones, datos e historias sobre cómo los algoritmos están redefiniendo
-            la productividad, la seguridad y el uso del agua en las grandes faenas del país.
+            Un micrositio periodístico que explora cómo la inteligencia artificial, la
+            automatización y la analítica de datos están transformando las faenas del
+            cobre en el desierto de Atacama y la cordillera de los Andes.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#investigaciones"
-              className="inline-flex items-center gap-2 rounded-md bg-copper px-5 py-3 text-sm font-semibold text-copper-foreground shadow-sm transition-colors hover:bg-copper/90"
+              className="group inline-flex items-center gap-2 rounded-md bg-copper px-5 py-3 text-sm font-semibold text-copper-foreground shadow-sm transition-all hover:bg-copper/90 hover:shadow-md hover:-translate-y-0.5"
             >
-              Explorar investigaciones <ArrowRight className="h-4 w-4" />
+              Explorar innovación minera
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
             <a
               href="#indicadores"
@@ -237,7 +248,7 @@ function Hero() {
 
 function Kpis() {
   return (
-    <section id="indicadores" className="mx-auto -mt-10 max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="mx-auto -mt-10 max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {kpis.map((k) => {
           const Icon = k.icon;
@@ -246,10 +257,10 @@ function Kpis() {
           return (
             <div
               key={k.label}
-              className="group rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200 transition-all hover:-translate-y-1 hover:shadow-md"
+              className="group rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:ring-slate-300"
             >
               <div className="flex items-start justify-between">
-                <div className={`grid h-12 w-12 place-items-center rounded-lg ${accentBg}`}>
+                <div className={`grid h-12 w-12 place-items-center rounded-lg ${accentBg} transition-transform duration-300 group-hover:scale-110`}>
                   <Icon className={`h-6 w-6 ${accentText}`} />
                 </div>
                 <span className={`text-2xl font-extrabold ${accentText}`}>{k.value}</span>
@@ -336,6 +347,204 @@ function Investigaciones() {
 
 function About() {
   return (
+    <AboutInner />
+  );
+}
+
+const timeline = [
+  {
+    year: "2008",
+    title: "División Gabriela Mistral y autonomía minera",
+    desc: "Codelco estrena el primer yacimiento del mundo diseñado para operar al 100% con flota de camiones autónomos.",
+    icon: Truck,
+  },
+  {
+    year: "2015",
+    title: "Expansión de sistemas predictivos",
+    desc: "Modelos de mantenimiento predictivo y analítica avanzada se masifican en plantas concentradoras.",
+    icon: LineChart,
+  },
+  {
+    year: "2020",
+    title: "Centros integrados de operación",
+    desc: "Salas de control remotas consolidan datos de faena, planta y logística en tiempo real.",
+    icon: Radio,
+  },
+  {
+    year: "2023",
+    title: "Gemelos digitales",
+    desc: "Réplicas virtuales de procesos permiten simular escenarios hídricos y operacionales antes de ejecutarlos.",
+    icon: Network,
+  },
+  {
+    year: "2026",
+    title: "IA generativa y minería inteligente",
+    desc: "Copilotos de IA asisten a operadores, geólogos y mantenedores con recomendaciones contextuales.",
+    icon: Sparkles,
+  },
+];
+
+function Timeline() {
+  return (
+    <section id="trayectoria" className="bg-white py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl">
+          <p className="text-xs font-semibold uppercase tracking-wider text-mineral">
+            Trayectoria
+          </p>
+          <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+            Evolución de la IA en la minería chilena
+          </h2>
+          <p className="mt-3 text-slate-600">
+            Casi dos décadas de hitos que llevaron al cobre chileno desde la
+            automatización pionera hasta la inteligencia artificial generativa.
+          </p>
+        </div>
+
+        {/* Mobile: vertical line */}
+        <ol className="relative mt-10 space-y-8 border-l border-slate-200 pl-6 md:hidden">
+          {timeline.map((t) => {
+            const Icon = t.icon;
+            return (
+              <li key={t.year} className="group relative">
+                <span className="absolute -left-[34px] grid h-7 w-7 place-items-center rounded-full bg-copper text-white shadow-sm ring-4 ring-white transition-transform group-hover:scale-110">
+                  <Icon className="h-3.5 w-3.5" />
+                </span>
+                <p className="text-sm font-bold text-copper">{t.year}</p>
+                <h3 className="mt-1 text-base font-semibold text-slate-900">{t.title}</h3>
+                <p className="mt-1 text-sm text-slate-600">{t.desc}</p>
+              </li>
+            );
+          })}
+        </ol>
+
+        {/* Desktop: horizontal */}
+        <div className="relative mt-14 hidden md:block">
+          <div className="absolute left-0 right-0 top-7 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent" />
+          <ol className="relative grid grid-cols-5 gap-4">
+            {timeline.map((t) => {
+              const Icon = t.icon;
+              return (
+                <li key={t.year} className="group flex flex-col items-center text-center">
+                  <span className="grid h-14 w-14 place-items-center rounded-full bg-white ring-2 ring-copper text-copper shadow-sm transition-all duration-300 group-hover:bg-copper group-hover:text-white group-hover:shadow-md group-hover:-translate-y-1">
+                    <Icon className="h-6 w-6" />
+                  </span>
+                  <p className="mt-4 text-lg font-extrabold text-copper">{t.year}</p>
+                  <h3 className="mt-1 text-sm font-semibold leading-snug text-slate-900">
+                    {t.title}
+                  </h3>
+                  <p className="mt-2 text-xs leading-relaxed text-slate-600">{t.desc}</p>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const dashboard = [
+  {
+    icon: Truck,
+    label: "Operaciones autónomas",
+    desc: "Flotas de camiones de extracción guiadas por algoritmos.",
+    status: "En faena",
+  },
+  {
+    icon: ShieldCheck,
+    label: "Seguridad operacional",
+    desc: "Visión artificial para fatiga, distracciones y zonas de exclusión.",
+    status: "Monitoreo 24/7",
+  },
+  {
+    icon: Droplets,
+    label: "Gestión hídrica inteligente",
+    desc: "Optimización del balance y recirculación de agua en plantas.",
+    status: "Tiempo real",
+  },
+  {
+    icon: Activity,
+    label: "Monitoreo en tiempo real",
+    desc: "Telemetría unificada de equipos, procesos y energía.",
+    status: "Streaming",
+  },
+  {
+    icon: Cpu,
+    label: "Analítica predictiva",
+    desc: "Modelos que anticipan fallas, leyes y comportamiento mineral.",
+    status: "Modelos activos",
+  },
+  {
+    icon: Boxes,
+    label: "Gemelos digitales",
+    desc: "Réplicas virtuales para simular operaciones antes de ejecutarlas.",
+    status: "Piloto",
+  },
+];
+
+function Dashboard() {
+  return (
+    <section id="indicadores" className="bg-surface py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-mineral">
+              Indicadores
+            </p>
+            <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+              Panel de innovación minera
+            </h2>
+            <p className="mt-2 max-w-2xl text-slate-600">
+              Dimensiones clave que monitorea la nueva minería chilena. Los valores
+              específicos se incorporarán a medida que se publiquen datos verificados.
+            </p>
+          </div>
+          <span className="inline-flex w-fit items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-semibold text-mineral ring-1 ring-slate-200">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-mineral" />
+            Datos de referencia
+          </span>
+        </div>
+
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {dashboard.map((d) => {
+            const Icon = d.icon;
+            return (
+              <div
+                key={d.label}
+                className="group relative overflow-hidden rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:ring-copper/40"
+              >
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-copper/0 via-copper to-mineral opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="flex items-start justify-between">
+                  <div className="grid h-12 w-12 place-items-center rounded-lg bg-copper/10 text-copper transition-transform duration-300 group-hover:scale-110">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <span className="rounded-full bg-mineral/10 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-mineral">
+                    {d.status}
+                  </span>
+                </div>
+                <h3 className="mt-5 text-base font-semibold text-slate-900">{d.label}</h3>
+                <p className="mt-1 text-sm text-slate-600">{d.desc}</p>
+                <div className="mt-5 flex items-end gap-1" aria-hidden>
+                  {[40, 65, 50, 80, 55, 90, 70].map((h, i) => (
+                    <span
+                      key={i}
+                      className="w-2 rounded-sm bg-slate-200 transition-all duration-500 group-hover:bg-copper/70"
+                      style={{ height: `${h * 0.35}px` }}
+                    />
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AboutInner() {
+  return (
     <section id="acerca" className="bg-surface py-20">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
         <div>
@@ -421,8 +630,10 @@ function Index() {
       <Navbar />
       <main className="pt-16">
         <Hero />
-        <Investigaciones />
         <Kpis />
+        <Investigaciones />
+        <Timeline />
+        <Dashboard />
         <About />
       </main>
       <Footer />
