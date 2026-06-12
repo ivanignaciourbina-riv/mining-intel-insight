@@ -187,15 +187,17 @@ function Hero() {
             Inteligencia Artificial en la <span className="text-copper">minería chilena</span>
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-slate-600">
-            Investigaciones, datos e historias sobre cómo los algoritmos están redefiniendo
-            la productividad, la seguridad y el uso del agua en las grandes faenas del país.
+            Un micrositio periodístico que explora cómo la inteligencia artificial, la
+            automatización y la analítica de datos están transformando las faenas del
+            cobre en el desierto de Atacama y la cordillera de los Andes.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#investigaciones"
-              className="inline-flex items-center gap-2 rounded-md bg-copper px-5 py-3 text-sm font-semibold text-copper-foreground shadow-sm transition-colors hover:bg-copper/90"
+              className="group inline-flex items-center gap-2 rounded-md bg-copper px-5 py-3 text-sm font-semibold text-copper-foreground shadow-sm transition-all hover:bg-copper/90 hover:shadow-md hover:-translate-y-0.5"
             >
-              Explorar investigaciones <ArrowRight className="h-4 w-4" />
+              Explorar innovación minera
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
             <a
               href="#indicadores"
