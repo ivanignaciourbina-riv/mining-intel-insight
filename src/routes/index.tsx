@@ -248,7 +248,7 @@ function Hero() {
 
 function Kpis() {
   return (
-    <section id="indicadores" className="mx-auto -mt-10 max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="mx-auto -mt-10 max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {kpis.map((k) => {
           const Icon = k.icon;
@@ -257,10 +257,10 @@ function Kpis() {
           return (
             <div
               key={k.label}
-              className="group rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200 transition-all hover:-translate-y-1 hover:shadow-md"
+              className="group rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:ring-slate-300"
             >
               <div className="flex items-start justify-between">
-                <div className={`grid h-12 w-12 place-items-center rounded-lg ${accentBg}`}>
+                <div className={`grid h-12 w-12 place-items-center rounded-lg ${accentBg} transition-transform duration-300 group-hover:scale-110`}>
                   <Icon className={`h-6 w-6 ${accentText}`} />
                 </div>
                 <span className={`text-2xl font-extrabold ${accentText}`}>{k.value}</span>
