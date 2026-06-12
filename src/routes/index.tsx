@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import heroBg from "@/assets/hero-mina.png.asset.json";
-import logo from "@/assets/logo-mineria.jpeg.asset.json";
+import heroBg from "@/assets/hero-panoramic.jpg.asset.json";
+import logo from "@/assets/logo-copper.png.asset.json";
 import imgAutonoma from "@/assets/inv-mineria-autonoma.jpg.asset.json";
 import imgFatiga from "@/assets/inv-seguridad-fatiga.jpg.asset.json";
 import imgAgua from "@/assets/inv-agua-relaves.jpg.asset.json";
@@ -13,6 +13,14 @@ import {
   Menu,
   X,
   ArrowRight,
+  Truck,
+  Activity,
+  LineChart,
+  Cpu,
+  Radio,
+  Network,
+  Boxes,
+  Sparkles,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -39,6 +47,7 @@ export const Route = createFileRoute("/")({
 const navLinks = [
   { label: "Inicio", href: "#inicio" },
   { label: "Investigaciones", href: "#investigaciones" },
+  { label: "Trayectoria", href: "#trayectoria" },
   { label: "Indicadores", href: "#indicadores" },
   { label: "Acerca de", href: "#acerca" },
 ];
