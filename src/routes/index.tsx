@@ -630,8 +630,10 @@ function Index() {
       <Navbar />
       <main className="pt-16">
         <Hero />
-        <Investigaciones />
         <Kpis />
+        <Investigaciones />
+        <Timeline />
+        <Dashboard />
         <About />
       </main>
       <Footer />
