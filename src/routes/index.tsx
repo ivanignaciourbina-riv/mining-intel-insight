@@ -627,10 +627,9 @@ function Footer() {
         <div>
           <h4 className="text-sm font-semibold text-white">Institucional</h4>
           <ul className="mt-4 space-y-2 text-sm">
+            <li><a href="#" className="hover:text-copper">Quiénes somos</a></li>
+            <li><a href="#" className="hover:text-copper">Cómo realizamos la investigación</a></li>
             <li><a href="#" className="hover:text-copper">Contacto</a></li>
-            <li><a href="#" className="hover:text-copper">Política editorial</a></li>
-            <li><a href="#" className="hover:text-copper">Términos</a></li>
-            <li><a href="#" className="hover:text-copper">Créditos</a></li>
           </ul>
         </div>
       </div>
