@@ -9,9 +9,27 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as QuienesSomosRouteImport } from './routes/quienes-somos'
+import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as ComoInvestigamosRouteImport } from './routes/como-investigamos'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as InvestigacionSlugRouteImport } from './routes/investigacion.$slug'
 
+const QuienesSomosRoute = QuienesSomosRouteImport.update({
+  id: '/quienes-somos',
+  path: '/quienes-somos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComoInvestigamosRoute = ComoInvestigamosRouteImport.update({
+  id: '/como-investigamos',
+  path: '/como-investigamos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -25,32 +43,81 @@ const InvestigacionSlugRoute = InvestigacionSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/como-investigamos': typeof ComoInvestigamosRoute
+  '/contacto': typeof ContactoRoute
+  '/quienes-somos': typeof QuienesSomosRoute
   '/investigacion/$slug': typeof InvestigacionSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/como-investigamos': typeof ComoInvestigamosRoute
+  '/contacto': typeof ContactoRoute
+  '/quienes-somos': typeof QuienesSomosRoute
   '/investigacion/$slug': typeof InvestigacionSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/como-investigamos': typeof ComoInvestigamosRoute
+  '/contacto': typeof ContactoRoute
+  '/quienes-somos': typeof QuienesSomosRoute
   '/investigacion/$slug': typeof InvestigacionSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/investigacion/$slug'
+  fullPaths:
+    | '/'
+    | '/como-investigamos'
+    | '/contacto'
+    | '/quienes-somos'
+    | '/investigacion/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/investigacion/$slug'
-  id: '__root__' | '/' | '/investigacion/$slug'
+  to:
+    | '/'
+    | '/como-investigamos'
+    | '/contacto'
+    | '/quienes-somos'
+    | '/investigacion/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/como-investigamos'
+    | '/contacto'
+    | '/quienes-somos'
+    | '/investigacion/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ComoInvestigamosRoute: typeof ComoInvestigamosRoute
+  ContactoRoute: typeof ContactoRoute
+  QuienesSomosRoute: typeof QuienesSomosRoute
   InvestigacionSlugRoute: typeof InvestigacionSlugRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/quienes-somos': {
+      id: '/quienes-somos'
+      path: '/quienes-somos'
+      fullPath: '/quienes-somos'
+      preLoaderRoute: typeof QuienesSomosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/como-investigamos': {
+      id: '/como-investigamos'
+      path: '/como-investigamos'
+      fullPath: '/como-investigamos'
+      preLoaderRoute: typeof ComoInvestigamosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -70,6 +137,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ComoInvestigamosRoute: ComoInvestigamosRoute,
+  ContactoRoute: ContactoRoute,
+  QuienesSomosRoute: QuienesSomosRoute,
   InvestigacionSlugRoute: InvestigacionSlugRoute,
 }
 export const routeTree = rootRouteImport
