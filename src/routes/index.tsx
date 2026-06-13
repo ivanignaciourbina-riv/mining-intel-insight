@@ -542,7 +542,7 @@ function Dashboard() {
           </div>
         </div>
         <div className="lg:sticky lg:top-24 lg:self-start">
-          <div className="overflow-hidden rounded-2xl bg-slate-900 shadow-lg ring-1 ring-slate-200">
+          <div className="mx-auto aspect-[4/5] w-full max-w-lg overflow-hidden rounded-2xl bg-slate-900 shadow-lg ring-1 ring-slate-200">
             <video
               src={panelVideo.url}
               className="h-full w-full object-cover"
