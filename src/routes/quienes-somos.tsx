@@ -3,6 +3,9 @@ import { ArrowLeft, Mountain } from "lucide-react";
 import imgIvan from "@/assets/Ivan_Urbina_minero.png";
 import imgEduardo from "@/assets/Eduardo_Aracena_minero.png";
 import imgMarcelo from "@/assets/Marcelo_Catril_minero.png";
+import videoIvan from "@/assets/ivan-urbina.mp4.asset.json";
+import videoEduardo from "@/assets/eduardo-aracena.mov.asset.json";
+import videoMarcelo from "@/assets/marcelo-catril.mp4.asset.json";
 
 export const Route = createFileRoute("/quienes-somos")({
   head: () => ({
@@ -21,16 +24,19 @@ const equipo = [
     nombre: "Iván Ignacio Urbina Rivera",
     rol: "Director de Contenidos y Estrategia de UX/UI",
     imagen: imgIvan,
+    video: videoIvan.url,
   },
   {
     nombre: "Eduardo Aracena",
     rol: "Editor de Investigación y Analítica de Datos",
     imagen: imgEduardo,
+    video: videoEduardo.url,
   },
   {
     nombre: "Marcelo Catril",
     rol: "Desarrollador Frontend y Diseñador de Recursos Visuales",
     imagen: imgMarcelo,
+    video: videoMarcelo.url,
   },
 ];
 
@@ -71,10 +77,13 @@ function QuienesSomos() {
                   <p className="mt-2 text-base text-copper font-medium sm:text-lg">{p.rol}</p>
                 </div>
                 <div className="mx-auto w-full max-w-[240px] sm:max-w-[260px] lg:mx-0">
-                  <div className="aspect-[9/16] overflow-hidden rounded-2xl ring-1 ring-slate-200">
-                    <img
-                      src={p.imagen}
-                      alt={p.nombre}
+                  <div className="aspect-[9/16] overflow-hidden rounded-2xl bg-slate-900 ring-1 ring-slate-200">
+                    <video
+                      src={p.video}
+                      poster={p.imagen}
+                      controls
+                      playsInline
+                      preload="metadata"
                       className="h-full w-full object-cover"
                     />
                   </div>
