@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, Image as ImageIcon, Mail, Mountain } from "lucide-react";
+import { ArrowLeft, Mail, Mountain } from "lucide-react";
 
 export const Route = createFileRoute("/contacto")({
   head: () => ({
@@ -41,20 +41,6 @@ function Contacto() {
           <p className="mt-4 max-w-2xl text-lg text-slate-600">
             Escríbenos directamente a cualquiera de los integrantes del equipo editorial.
           </p>
-
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            {[0, 1].map((i) => (
-              <div
-                key={i}
-                className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-slate-100 ring-1 ring-slate-200"
-              >
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-slate-400">
-                  <ImageIcon className="h-10 w-10" />
-                  <span className="text-xs font-medium uppercase tracking-wider">Foto {i + 1}</span>
-                </div>
-              </div>
-            ))}
-          </div>
 
           <ul className="mt-12 divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white shadow-sm">
             {contactos.map((c) => (

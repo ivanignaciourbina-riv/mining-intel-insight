@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, Image as ImageIcon, Mountain } from "lucide-react";
+import { ArrowLeft, Mountain } from "lucide-react";
+import iaMineriaAsset from "@/assets/ia-mineria.jpg.asset.json";
 
 export const Route = createFileRoute("/como-investigamos")({
   head: () => ({
@@ -46,19 +47,14 @@ function ComoInvestigamos() {
             Metodología, herramientas de IA y proceso editorial detrás del portal Minería 4.0 Chile.
           </p>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            {[0, 1].map((i) => (
-              <div
-                key={i}
-                className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-slate-100 ring-1 ring-slate-200"
-              >
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-slate-400">
-                  <ImageIcon className="h-10 w-10" />
-                  <span className="text-xs font-medium uppercase tracking-wider">Foto {i + 1}</span>
-                </div>
-              </div>
-            ))}
-          </div>
+          <figure className="mt-10 overflow-hidden rounded-2xl ring-1 ring-slate-200">
+            <img
+              src={iaMineriaAsset.url}
+              alt="Inteligencia artificial aplicada a la minería: tablet con dashboard de camión autónomo en faena"
+              className="h-auto w-full object-cover"
+              loading="lazy"
+            />
+          </figure>
 
           <div className="mt-10 space-y-6 text-base leading-relaxed text-slate-700 sm:text-lg">
             {parrafos.map((p, i) => (
