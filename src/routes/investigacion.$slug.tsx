@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, Mountain } from "lucide-react";
 import imgAutonoma from "@/assets/inv-mineria-autonoma.jpg.asset.json";
 import imgFatiga from "@/assets/inv-seguridad-fatiga.jpg.asset.json";
-import imgAgua from "@/assets/inv-agua-relaves.jpg.asset.json";
+import imgAgua from "@/assets/inv-agua-relaves-nueva";
 
 type Nota = {
   tag: string;
@@ -60,7 +60,7 @@ const notas: Record<string, Nota> = {
     autor: "Redacción Minería 4.0",
     fecha: "20 de mayo de 2026",
     lectura: "9 min de lectura",
-    imagen: imgAgua.url,
+    imagen: imgAgua,
     parrafos: [
       "El estrés hídrico que vive el norte y el centro de Chile ha empujado a la gran minería a repensar por completo su relación con el agua. Los gemelos digitales de plantas concentradoras permiten hoy simular en tiempo real el balance hídrico de toda una operación y decidir, automáticamente, cuándo recircular, cuándo reponer y cuándo detener procesos.",
       "Los resultados son tangibles: varias compañías ya reportan tasas de recirculación cercanas al 85%, una cifra impensable hace apenas una década. La diferencia la hacen los modelos de IA que aprenden del histórico operacional y anticipan desviaciones antes de que ocurran.",
