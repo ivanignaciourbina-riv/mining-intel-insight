@@ -6,7 +6,7 @@ import logo from "@/assets/logo-copper.png.asset.json";
 import panelVideo from "@/assets/panel-innovacion.mp4.asset.json";
 import imgAutonoma from "@/assets/inv-mineria-autonoma.jpg.asset.json";
 import imgFatiga from "@/assets/inv-seguridad-fatiga.jpg.asset.json";
-import imgAgua from "@/assets/inv-agua-relaves.jpg.asset.json";
+import imgAgua from "@/assets/inv-agua-relaves-nueva";
 import {
   TrendingUp,
   Droplets,
@@ -104,7 +104,7 @@ const notas = [
     slug: "agua-relaves-ia",
     tag: "Sustentabilidad",
     accent: "copper" as const,
-    imagen: imgAgua.url,
+    imagen: imgAgua,
     title: "Algoritmos al rescate del agua y la estabilidad de relaves",
     bajada:
       "La Inteligencia Artificial se vuelve obligatoria frente al escenario de estrés hídrico y cambio climático.",
