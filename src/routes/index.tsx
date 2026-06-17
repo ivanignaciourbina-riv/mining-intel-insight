@@ -7,6 +7,8 @@ import panelVideo from "@/assets/panel-innovacion.mp4.asset.json";
 import imgAutonoma from "@/assets/inv-mineria-autonoma.jpg.asset.json";
 import imgFatiga from "@/assets/inv-seguridad-fatiga.jpg.asset.json";
 import imgAgua from "@/assets/inv-agua-relaves-nueva";
+import audioNuevaEtapa from "@/assets/nueva-etapa-mineria.mp3.asset.json";
+import audioIaMineria from "@/assets/ia-mineria-chilena.mp3.asset.json";
 import {
   TrendingUp,
   Droplets,
@@ -352,6 +354,41 @@ function About() {
   );
 }
 
+function AudiosDestacados() {
+  return (
+    <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+      <div className="grid gap-6 md:grid-cols-2">
+        <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <h3 className="text-lg font-bold text-slate-900">
+            Nueva etapa de la minería chilena
+          </h3>
+          <audio
+            controls
+            preload="none"
+            className="mt-4 w-full"
+            src={audioNuevaEtapa.url}
+          >
+            Tu navegador no soporta el elemento de audio.
+          </audio>
+        </div>
+        <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <h3 className="text-lg font-bold text-slate-900">
+            La IA ya está en la minería chilena
+          </h3>
+          <audio
+            controls
+            preload="none"
+            className="mt-4 w-full"
+            src={audioIaMineria.url}
+          >
+            Tu navegador no soporta el elemento de audio.
+          </audio>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 const timeline = [
   {
     year: "2008",
@@ -650,6 +687,7 @@ function Index() {
       <main className="pt-16">
         <Hero />
         <Investigaciones />
+        <AudiosDestacados />
         <Kpis />
         <Timeline />
         <Dashboard />
