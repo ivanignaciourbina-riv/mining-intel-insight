@@ -7,6 +7,8 @@ import panelVideo from "@/assets/panel-innovacion.mp4.asset.json";
 import imgAutonoma from "@/assets/inv-mineria-autonoma.jpg.asset.json";
 import imgFatiga from "@/assets/inv-seguridad-fatiga.jpg.asset.json";
 import imgAgua from "@/assets/inv-agua-relaves-nueva";
+import audioNuevaEtapa from "@/assets/nueva-etapa-mineria.mp3.asset.json";
+import audioIaMineria from "@/assets/ia-mineria-chilena.mp3.asset.json";
 import {
   TrendingUp,
   Droplets,
